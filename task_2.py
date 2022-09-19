@@ -19,7 +19,7 @@ def candies_2021_pvp():
     :return:
     """
     switch = 0
-    total_candies = 112
+    total_candies = 2021
     one_move_max = 28
 
     print('Привет! Это игра "2021 Конфета".\n'
@@ -87,7 +87,7 @@ def candies_2021_pvc():
         Игра "2021 Конфета" для одного игрока.
         :return:
         """
-    total_candies = 112
+    total_candies = 2021
     one_move_max = 28
 
     print('Привет! Это игра "2021 Конфета".\n'
