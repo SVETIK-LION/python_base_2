@@ -19,8 +19,8 @@ def draw_board(board):
 
 
 def write_symbol(player_symbol):
-    valid = False
-    while not valid:
+    valid = True
+    while valid:
         player_answer = input(f'Куда поставить {player_symbol}? ')
         try:
             player_answer = int(player_answer)
@@ -31,7 +31,7 @@ def write_symbol(player_symbol):
         if 1 <= player_answer <= 9:
             if str(new_board[player_answer - 1]) not in "XO":
                 new_board[player_answer-1] = player_symbol
-                valid = True
+                valid = False
             else:
                 print("Клетка уже занята, выберете другую")
         else:
@@ -48,8 +48,7 @@ def check_win(board):
 
 def tic_tac_toe(board):
     counter = 0
-    win = True
-    while win:
+    while True:
         draw_board(board)
         if counter % 2 == 0:
             write_symbol("X")
@@ -59,7 +58,7 @@ def tic_tac_toe(board):
         if counter > 4:
             win_symbol = check_win(board)
             if win_symbol:
-                print(f'{win_symbol}, "выиграл!')
+                print(f'{win_symbol}, выиграл!')
                 break
         if counter == 9:
             print("Победила дружба! Ничья :)")
