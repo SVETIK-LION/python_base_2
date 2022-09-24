@@ -1,0 +1,15 @@
+Index: task_1.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\nНапишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет,\nявляется ли этот день выходным.\nПример:\n- 6 -> да\n- 7 -> да\n- 1 -> нет\n\"\"\"\n\n\ndef is_weekend():\n    \"\"\"\n    Проверяет, является ли день выходным\\n\n    :return:\n    \"\"\"\n    try:\n        num_day = int(input('Введите номер дня недели: '))\n        if num_day <= 0 or num_day > 7:\n            raise ValueError('Неверное значение.')\n    except ValueError:\n        return f'Нужно ввести целое положительное число от 1 до 7.'\n\n    if 1 <= num_day <= 5:\n        return f'Нет, это будний день'\n    else:\n        if num_day == 6 or num_day == 7:\n            return f'Да, это выходной'\n\n\nprint(is_weekend())\n
+===================================================================
+diff --git a/task_1.py b/task_1.py
+--- a/task_1.py	
++++ b/task_1.py	
+@@ -27,4 +27,4 @@
+             return f'Да, это выходной'
+ 
+ 
+-print(is_weekend())
++print(is_weekend())
+\ No newline at end of file
