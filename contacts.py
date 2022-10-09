@@ -21,7 +21,7 @@ def create_contact() -> dict:
 
 
 def add_contacts(contact: dict):
-    """Добавляет контакты в телефонных справочник"""
+    """Добавляет контакты в телефонный справочник"""
     name = contact['name'][-1]
     _CONTACTS[name] = contact
     print(f'Контакт {name} успешно добавлен')

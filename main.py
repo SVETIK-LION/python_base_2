@@ -9,6 +9,6 @@
 Экспортировать в .csv
 """
 
-from controller import start
+from controller import phone_book
 
-start()
+phone_book()
