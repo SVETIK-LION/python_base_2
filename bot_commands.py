@@ -4,7 +4,7 @@ from telegram.ext import CallbackContext
 from log import log_command
 
 
-def start_command(update: Update, context: CallbackContext) -> None:
+def start_bot(update: Update, context: CallbackContext) -> None:
     log_command(update, context)  # Логирует данные пользователя чата (по-идее, лучше сделать с использованием БД)
     keyboard = ReplyKeyboardMarkup([['остановить магию']],
                                    resize_keyboard=True, one_time_keyboard=True)
@@ -42,5 +42,8 @@ def sphere_answer(update, context):
 def stop_bot(update: Update, context: CallbackContext):
     keyboard = ReplyKeyboardMarkup([['включить магию']],
                                    resize_keyboard=True, one_time_keyboard=True)
-    update.message.reply_text(f'До свидания, {update.effective_user.first_name}! Буду рада видеть тебя снова! :)',
-                              reply_markup=keyboard)
+    bye = choice([f'До свидания, {update.effective_user.first_name}! И удачи...',
+                  f'{update.effective_user.first_name}, Возвращайся, если возникнут вопросы',
+                  f'{update.effective_user.first_name} приходи снова за ответами',
+                  f'До свидания, {update.effective_user.first_name}! Буду рада видеть тебя снова! :)'])
+    update.message.reply_text(f'{bye}', reply_markup=keyboard)
