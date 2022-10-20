@@ -26,20 +26,21 @@ def question(update: Update, context: CallbackContext) -> None:
 
 
 def sphere_answer(update, context):
-    log_command(update, context)  # Логирует данные пользователя чата
+    log_command(update, context)
     keyboard = ReplyKeyboardMarkup([['задать еще вопрос'], ['остановить магию']],
                                    resize_keyboard=True, one_time_keyboard=True)
     ansver = choice(["Бесспорно", "Предрешено", "Никаких сомнений", "Определённо да", "Можешь быть уверен в этом",
-                  "Мне кажется - да", "Вероятнее всего", "Хорошие перспективы", "Знаки говорят - да", "Да",
-                  "Пока не ясно, попробуй снова", "Сори, но об этом нельзя рассказывать... :)", "Спроси позже",
+                     "Мне кажется - да", "Вероятнее всего", "Хорошие перспективы", "Знаки говорят - да", "Да",
+                     "Пока не ясно, попробуй снова", "Сори, но об этом нельзя рассказывать... :)", "Спроси позже",
                      "Лучше не рассказывать", "Сейчас нельзя предсказать",
-                  "Сконцентрируйся и спроси опять", "Даже не думай", "Мой ответ - нет", "По моим данным - нет",
-                  "Перспективы не очень хорошие", "Весьма сомнительно", "Вполне возможно"])
+                     "Сконцентрируйся и спроси опять", "Даже не думай", "Мой ответ - нет", "По моим данным - нет",
+                     "Перспективы не очень хорошие", "Весьма сомнительно", "Вполне возможно"])
     update.message.reply_text(f'{ansver}.',
                               reply_markup=keyboard)
 
 
 def stop_bot(update: Update, context: CallbackContext):
+    log_command(update, context)
     keyboard = ReplyKeyboardMarkup([['включить магию']],
                                    resize_keyboard=True, one_time_keyboard=True)
     bye = choice([f'До свидания, {update.effective_user.first_name}! И удачи...',
