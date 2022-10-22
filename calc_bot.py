@@ -86,7 +86,7 @@ def reply_num_a_input(update: Update, context: CallbackContext) -> int:
 def reply_num_b_input(update: Update, context: CallbackContext) -> int:
     data["num_b"] = update.message.text.replace(" ", "")
 
-    result = calc_operation()
+    result = get_result()
 
     update.message.reply_text(f"Результат вычисления: {result}")
     update.message.reply_text(f"Наберите /start для запуска")
@@ -94,7 +94,7 @@ def reply_num_b_input(update: Update, context: CallbackContext) -> int:
     return RESTART_STATE
 
 
-def calc_operation():
+def get_result():
     result = 0
     num_a = data["num_type"](data["num_a"])
     num_b = data["num_type"](data["num_b"])
